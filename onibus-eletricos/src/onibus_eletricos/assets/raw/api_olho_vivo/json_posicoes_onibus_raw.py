@@ -23,7 +23,14 @@ import time
     }
 )
 
-def ainda_n_sei_nome(context):
-    json_api_olho_vivo= context.resources.api_olho_vivo.APIOlhoVivoClient()
-    context.log.info(json_api_olho_vivo)
-    return json_api_olho_vivo
+def json_posicoes_onibus_raw(context):
+    posicao=[]
+    api = context.resources.api_olho_vivo.APIOlhoVivoClient()
+    espera = 30 #deveria ser um schedule?
+
+    for i in range(15): #determina a len em posição 
+        posicao_atual = api.posicao_atual_onibus
+        posicoes.append(posicao_atual)
+        time.sleep(espera)
+
+    return posicoes
