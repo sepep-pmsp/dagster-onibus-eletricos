@@ -1,5 +1,6 @@
 #project specific
 data/*
+.tmp_dagster*/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
