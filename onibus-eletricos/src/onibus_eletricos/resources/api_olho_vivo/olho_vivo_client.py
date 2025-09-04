@@ -1,4 +1,4 @@
-from . import RequestMaker
+from .url_builder import RequestMaker
 
 class APIOlhoVivoClient:
 
