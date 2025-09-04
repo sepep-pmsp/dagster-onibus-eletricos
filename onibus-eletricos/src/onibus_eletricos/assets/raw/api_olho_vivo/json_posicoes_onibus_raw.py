@@ -27,4 +27,5 @@ import time
 
 def json_posicoes_onibus_raw(context):
     api = context.resources.api_olho_vivo
-    return api
+    posicao_atual = api.posicao_atual_onibus
+    return posicao_atual
