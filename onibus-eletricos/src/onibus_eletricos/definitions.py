@@ -32,7 +32,10 @@ defs = Definitions(
         "api_olho_vivo": APIOlhoVivoClient(
                     token=OLHO_VIVO_TOKEN
         ),
-        "localhost_data_saver": LocalhostDataSaver()
+        "localhost_raw_data_saver": LocalhostDataSaver(tier='raw'),
+        "localhost_bronze_data_saver": LocalhostDataSaver(tier='bronze'),
+        "localhost_silver_data_saver": LocalhostDataSaver(tier='silver'),
+        "localhost_gold_data_saver": LocalhostDataSaver(tier='gold'),
     },
     assets=[
         #Raw
