@@ -31,7 +31,10 @@ def dici_posicoes_onibus_raw(context)->dict:
     posicao_atual = api.posicao_atual_onibus
 
     hora_req = posicao_atual['hr'].replace(":", "-")
-    context.resources.localhost_raw_data.save_json(posicao_atual, f"posicoes_onibus_{hora_req}_raw.json")
+    context.resources.localhost_raw_data.save_json(
+        posicao_atual, 
+        f"posicoes_onibus_{hora_req}_raw.json"
+    )
     context.log.info(f"Saved raw bus position data at hour: {hora_req}.")
     return posicao_atual
 

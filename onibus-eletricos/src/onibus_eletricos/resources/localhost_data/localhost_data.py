@@ -1,5 +1,6 @@
 import os
 import json
+import pandas as pd
 from typing import Literal
 from ..env_variables import LOCALHOST_DATAFOLDER
 
@@ -39,4 +40,9 @@ class LocalhostData:
         filepath = os.path.join(self.folder, filename)
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
+        
+    def save_csv(self, df:pd.DataFrame, filename:str)->None:
+        file_path = os.path.join(self.folder, filename)
+        return df.to_csv(file_path, index=False)
+
         
