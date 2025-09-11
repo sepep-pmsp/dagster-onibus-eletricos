@@ -3,7 +3,7 @@ import json
 from typing import Literal
 from ..env_variables import LOCALHOST_DATAFOLDER
 
-class LocalhostDataSaver:
+class LocalhostData:
 
 
     def __init__(self, tier:Literal['raw', 'bronze', 'silver', 'gold']):
@@ -39,3 +39,4 @@ class LocalhostDataSaver:
         filepath = os.path.join(self.folder, filename)
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
+        

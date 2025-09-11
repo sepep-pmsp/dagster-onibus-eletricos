@@ -3,7 +3,7 @@ from dagster import Definitions
 #Resources
 from .resources.env_variables import OLHO_VIVO_TOKEN
 from .resources.api_olho_vivo import APIOlhoVivoClient
-from .resources.localhost_data import LocalhostDataSaver
+from .resources.localhost_data import LocalhostData
 
 #Jobs
 from .defs.jobs import job_posicao_onibus_por_minuto
@@ -33,10 +33,10 @@ defs = Definitions(
         "api_olho_vivo": APIOlhoVivoClient(
                     token=OLHO_VIVO_TOKEN
         ),
-        "localhost_raw_data_saver": LocalhostDataSaver(tier='raw'),
-        "localhost_bronze_data_saver": LocalhostDataSaver(tier='bronze'),
-        "localhost_silver_data_saver": LocalhostDataSaver(tier='silver'),
-        "localhost_gold_data_saver": LocalhostDataSaver(tier='gold'),
+        "localhost_raw_data": LocalhostData(tier='raw'),
+        "localhost_bronze_data": LocalhostData(tier='bronze'),
+        "localhost_silver_data": LocalhostData(tier='silver'),
+        "localhost_gold_data": LocalhostData(tier='gold'),
     },
     assets=[
         #Raw
