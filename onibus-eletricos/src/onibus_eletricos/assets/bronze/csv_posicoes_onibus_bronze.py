@@ -24,7 +24,7 @@ class Onibus(BaseModel):
 @asset(
     required_resource_keys= {
         "api_olho_vivo",
-        "localhost_bronze_data_saver"
+        "localhost_bronze_data"
     },
     group_name = "bronze",
     tags={
