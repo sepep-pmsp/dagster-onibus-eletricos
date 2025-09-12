@@ -16,6 +16,8 @@ from .defs.schedule import schedule_posicao_onibus_por_minuto
 from .assets.raw.api_olho_vivo.json_posicoes_onibus_raw import dici_posicoes_onibus_raw
 ## Bronze - APIOlhoVivo
 from .assets.bronze.csv_posicoes_onibus_bronze import df_posicoes_onibus_bronze
+## Silver
+from .assets.silver.csv_posicoes_onibus_diario_silver import df_posicoes_onibus_diario_silver
 
 defs = Definitions(
     jobs=[
@@ -42,6 +44,7 @@ defs = Definitions(
         #Raw
         dici_posicoes_onibus_raw,
         df_posicoes_onibus_bronze,
+        df_posicoes_onibus_diario_silver,
     ]
 )
 

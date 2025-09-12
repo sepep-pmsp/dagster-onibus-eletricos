@@ -34,7 +34,9 @@ class Onibus(BaseModel):
         "tipo": "csv"
     },
     ins={
-        "dici_posicoes_onibus_raw" : AssetIn(key="dici_posicoes_onibus_raw"),
+        "dici_posicoes_onibus_raw" : AssetIn(
+            key="dici_posicoes_onibus_raw"
+        ),
     },
 )
 
