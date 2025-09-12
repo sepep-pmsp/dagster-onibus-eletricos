@@ -47,7 +47,8 @@ def df_posicoes_onibus_bronze(
 
     hora_requisicao = datetime.strptime(dici_posicoes['hr'], "%H:%M").time()
     context.log.info(hora_requisicao)
-    
+    hora_req = str(hora_requisicao).replace(":", "-")
+
     linhas = dici_posicoes['l']
     dados_parsed = []
     for linha in linhas:
@@ -77,6 +78,10 @@ def df_posicoes_onibus_bronze(
 
     df = pd.DataFrame(dados_parsed)
 
-    #fazer um save_csv no data saver
+    context.resources.localhost_bronze_data.save_csv(
+        df,
+        f"posicoes_onibus_{hora_req}_bronze.csv"
+    )
+    context.log.info(f"Saved bronze bus position data at hour: {hora_req}.")
 
     return df
