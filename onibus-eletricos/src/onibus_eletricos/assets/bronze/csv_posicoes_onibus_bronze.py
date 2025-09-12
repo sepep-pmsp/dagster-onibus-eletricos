@@ -7,7 +7,8 @@ from pydantic import BaseModel
 import pandas as pd
 from datetime import (
     datetime,
-    time
+    time,
+    date
 )
 
 class Onibus(BaseModel):
@@ -49,6 +50,9 @@ def df_posicoes_onibus_bronze(
     context.log.info(hora_requisicao)
     hora_req = str(hora_requisicao).replace(":", "-")
 
+    date_req = date.today().strftime('%Y-%m-%d')
+    context.log.info(date_req)
+
     linhas = dici_posicoes['l']
     dados_parsed = []
     for linha in linhas:
@@ -77,10 +81,12 @@ def df_posicoes_onibus_bronze(
             dados_parsed.append(teste.model_dump())
 
     df = pd.DataFrame(dados_parsed)
+    
+    
 
     context.resources.localhost_bronze_data.save_csv(
         df,
-        f"posicoes_onibus_{hora_req}_bronze.csv"
+        f"posicoes_onibus_{date_req}_{hora_req}_bronze.csv"
     )
     context.log.info(f"Saved bronze bus position data at hour: {hora_req}.")
 
